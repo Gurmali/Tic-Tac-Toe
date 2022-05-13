@@ -1,3 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
 body {
     background-color: gray;
+    font-family: 'Permanent Marker', cursive;
+}
+
+section {
+    width: 500px;
+    margin: auto;
+    padding-top: 5vh;
+}
+
+h1 {
+    font-size: 72px;
+    text-align: center;
+}
+
+.game-section {
+    display: grid;
+    grid-template-columns: 160px 160px 160px;
+    grid-template-rows: 150px 150px 150px;
+    text-align: center;
+}
+
+.game-section > div {
+    
+    background-color: bisque;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 100px;
+
+    border: 2px solid black;
+}
+
+.scores {
+    display: inline-block;
+}
+
+p {
+    font-size: larger;
+}
+
+#p1 {
+    padding-left: 10px;
+} 
+
+#p2 {
+    padding-left: 50px;
 }
