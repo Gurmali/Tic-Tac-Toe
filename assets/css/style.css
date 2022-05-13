@@ -54,3 +54,11 @@ p {
 #p2 {
     padding-left: 50px;
 }
+
+.box.x {
+    font-size: larger;
+}
+
+.box.circle {
+    font-size: larger;
+}
