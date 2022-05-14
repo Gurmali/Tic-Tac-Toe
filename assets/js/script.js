@@ -33,7 +33,11 @@ function placeMarker(e) {
         e.target.innerText = currentPlayer
 
         if(whoWon() !==false) {
+            if(whoWon()) {
             headingText = document.getElementById('heading').innerText = `Winner is ${currentPlayer}`
+            } else {
+                headingText = document.getElementById('heading').innerText = "Draw"
+            }
             
             stop()
         }
@@ -43,6 +47,7 @@ function placeMarker(e) {
     }
     
 }
+
 
 
 function whoWon() {
@@ -57,7 +62,7 @@ function whoWon() {
 }
 
 function stop() {
-    /*position.fill(null)*/
+    position.fill(null)
 
     boxes.forEach(box => {
 
@@ -72,11 +77,14 @@ function stop() {
 
 function endGame() {
     boxes.forEach(box => box.addEventListener('click', restartGame))
+    
 
 }
 
-function restartGame() {
+const restartGame = () => {
     alert("Restarting game!")
+
+    boxes.forEach(box => box.removeEventListener('click', restartGame))
 
     position.fill(null)
 
@@ -90,7 +98,7 @@ function restartGame() {
 
     currentPlayer = player1
 
-    window.location.reload();
+    
 
 }
 
