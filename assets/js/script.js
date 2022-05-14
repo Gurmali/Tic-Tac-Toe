@@ -57,15 +57,41 @@ function whoWon() {
 }
 
 function stop() {
+    /*position.fill(null)*/
+
+    boxes.forEach(box => {
+
+        box.innerText = 'X';
+
+    })
+
+    endGame()
+
+
+}
+
+function endGame() {
+    boxes.forEach(box => box.addEventListener('click', restartGame))
+
+}
+
+function restartGame() {
+    alert("Restarting game!")
+
     position.fill(null)
 
     boxes.forEach(box => {
-        if(currentPlayer == currentPlayer) {
-            box.innerText = 'X'
-        } else if(currentPlayer = notCurrentPlayer) {
-            box.innerText = 'O'
-        }
+
+        box.innerText = ' ';
+
     })
+
+    headingText = document.getElementById('heading').innerText = "Tic Tac Toe"
+
+    currentPlayer = player1
+
+    window.location.reload();
+
 }
 
 function giveScore() {
