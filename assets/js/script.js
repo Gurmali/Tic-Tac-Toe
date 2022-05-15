@@ -33,13 +33,11 @@ function placeMarker(e) {
         e.target.innerText = currentPlayer
 
         if(whoWon() !==false) {
-            if(whoWon()) {
             headingText = document.getElementById('heading').innerText = `Winner is ${currentPlayer}`
-            } else {
-                headingText = document.getElementById('heading').innerText = "Draw"
-            }
-            
+           
             stop()
+        } else {
+            noOne()
         }
 
 
@@ -48,6 +46,11 @@ function placeMarker(e) {
     
 }
 
+function noOne() {
+    if (Array.isArray(boxes) == !boxes.length) {
+        headingText = document.getElementById('heading').innerText = "draw"
+    }
+}
 
 
 function whoWon() {
@@ -94,7 +97,7 @@ const restartGame = () => {
 
     })
 
-    headingText = document.getElementById('heading').innerText = "Tic Tac Toe"
+    /*headingText = document.getElementById('heading').innerText = "Tic Tac Toe"*/
 
     currentPlayer = player1
 
