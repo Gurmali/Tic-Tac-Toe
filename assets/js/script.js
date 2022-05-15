@@ -5,7 +5,6 @@ const player1 = "X"
 const player2 = "O"
 
 let currentPlayer = player1
-let notCurrentPlayer = player2
 
 
 let position = Array(9).fill(null)
@@ -35,8 +34,6 @@ function placeMarker(e) {
         if(whoWon() !==false) {
             headingText = document.getElementById('heading').innerText = `Winner is ${currentPlayer}`
 
-            gamesPlayed()
-           
             stop()
         } else {
             draw()
@@ -56,8 +53,6 @@ function draw() {
     if(noWin === 9) {
         headingText = document.getElementById('heading').innerText = 'Its a Draw!'
 
-        gamesPlayed()
-
         stop()
     }
 }
@@ -72,6 +67,8 @@ function whoWon() {
         }
     }
     return false
+
+
 }
 
 function stop() {
@@ -81,6 +78,8 @@ function stop() {
 
     })
 
+    restartText()
+
     endGame()
 
 
@@ -88,6 +87,8 @@ function stop() {
 
 function endGame() {
     boxes.forEach(box => box.addEventListener('click', restartGame))
+
+    gamesPlayed()
     
 
 }
@@ -107,6 +108,8 @@ function restartGame() {
 
     headingText = document.getElementById('heading').innerText = "Tic Tac Toe"
 
+    document.getElementById('restart-text').innerText = " "
+
     currentPlayer = player1
 
 }
@@ -114,6 +117,10 @@ function restartGame() {
 function gamesPlayed() {
     let played = parseInt(document.getElementById('played').innerText)
     document.getElementById('played').innerText = ++played
+}
+
+function restartText() {
+    document.getElementById('restart-text').innerText = "click Board To Restart Game!"
 }
 
 runGame()
