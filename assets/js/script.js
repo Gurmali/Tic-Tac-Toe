@@ -21,13 +21,13 @@ const winnerCombinations = [
     [2,4,6]
 ]
 
-const runGame = () => {
+function runGame() {
     boxes.forEach(box => box.addEventListener('click', placeMarker))
 }
 
 function placeMarker(e) {
     let id = e.target.id
-    
+
     if (!position[id]) {
         position[id] = currentPlayer
         e.target.innerText = currentPlayer
@@ -47,8 +47,14 @@ function placeMarker(e) {
 }
 
 function noOne() {
-    if (Array.isArray(boxes) == !boxes.length) {
-        headingText = document.getElementById('heading').innerText = "draw"
+    let draw = 0
+    position.forEach((pos,i) => {
+        if(position[i] !== null) draw++
+    })
+    if(draw === 9) {
+        headingText = document.getElementById('heading').innerText = 'Its a Draw!'
+
+        stop()
     }
 }
 
@@ -65,8 +71,6 @@ function whoWon() {
 }
 
 function stop() {
-    position.fill(null)
-
     boxes.forEach(box => {
 
         box.innerText = 'X';
@@ -84,7 +88,7 @@ function endGame() {
 
 }
 
-const restartGame = () => {
+function restartGame() {
     alert("Restarting game!")
 
     boxes.forEach(box => box.removeEventListener('click', restartGame))
@@ -97,12 +101,9 @@ const restartGame = () => {
 
     })
 
-    /*headingText = document.getElementById('heading').innerText = "Tic Tac Toe"*/
+    headingText = document.getElementById('heading').innerText = "Tic Tac Toe"
 
     currentPlayer = player1
-
-    
-
 }
 
 function giveScore() {
