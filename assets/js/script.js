@@ -34,10 +34,12 @@ function placeMarker(e) {
 
         if(whoWon() !==false) {
             headingText = document.getElementById('heading').innerText = `Winner is ${currentPlayer}`
+
+            gamesPlayed()
            
             stop()
         } else {
-            noOne()
+            draw()
         }
 
 
@@ -46,13 +48,15 @@ function placeMarker(e) {
     
 }
 
-function noOne() {
-    let draw = 0
+function draw() {
+    let noWin = 0
     position.forEach((pos,i) => {
-        if(position[i] !== null) draw++
+        if(position[i] !== null) noWin++
     })
-    if(draw === 9) {
+    if(noWin === 9) {
         headingText = document.getElementById('heading').innerText = 'Its a Draw!'
+
+        gamesPlayed()
 
         stop()
     }
@@ -73,7 +77,7 @@ function whoWon() {
 function stop() {
     boxes.forEach(box => {
 
-        box.innerText = 'X';
+        box.innerText = 'X'
 
     })
 
@@ -104,10 +108,12 @@ function restartGame() {
     headingText = document.getElementById('heading').innerText = "Tic Tac Toe"
 
     currentPlayer = player1
+
 }
 
-function giveScore() {
-
+function gamesPlayed() {
+    let played = parseInt(document.getElementById('played').innerText)
+    document.getElementById('played').innerText = ++played
 }
 
 runGame()
