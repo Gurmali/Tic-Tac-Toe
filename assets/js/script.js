@@ -1,13 +1,13 @@
-let boxes = Array.from(document.getElementsByClassName('box'))
+let boxes = Array.from(document.getElementsByClassName('box'));
 
 
-const player1 = "X"
-const player2 = "O"
+const player1 = "X";
+const player2 = "O";
 
-let currentPlayer = player1
+let currentPlayer = player1;
 
 
-let position = Array(9).fill(null)
+let position = Array(9).fill(null);
 
 const winnerCombinations = [
     [0,1,2],
@@ -18,109 +18,107 @@ const winnerCombinations = [
     [2,5,8],
     [0,4,8],
     [2,4,6]
-]
+];
 
 function runGame() {
-    boxes.forEach(box => box.addEventListener('click', placeMarker))
+    boxes.forEach(box => box.addEventListener('click', placeMarker));
 }
 
 function placeMarker(e) {
-    let id = e.target.id
+    let id = e.target.id;
 
     if (!position[id]) {
-        position[id] = currentPlayer
-        e.target.innerText = currentPlayer
+        position[id] = currentPlayer;
+        e.target.innerText = currentPlayer;
 
         if(whoWon() !==false) {
-            headingText = document.getElementById('heading').innerText = `Winner is ${currentPlayer}`
+            document.getElementById('heading').innerText = `Winner is ${currentPlayer}`;
 
-            stop()
+            stop();
         } else {
-            draw()
+            draw();
         }
 
 
-        currentPlayer = currentPlayer == player1 ? player2 : player1
+        currentPlayer = currentPlayer == player1 ? player2 : player1;
     }
     
 }
 
 function draw() {
-    let noWin = 0
+    let noWin = 0;
     position.forEach((pos,i) => {
-        if(position[i] !== null) noWin++
-    })
+        if(position[i] !== null) noWin++;
+    });
     if(noWin === 9) {
-        headingText = document.getElementById('heading').innerText = 'Its a Draw!'
+        document.getElementById('heading').innerText = 'Its a Draw!';
 
-        stop()
+        stop();
     }
 }
 
 
 function whoWon() {
     for (const condition of winnerCombinations) {
-        let [a, b, c] = condition
+        let [a, b, c] = condition;
 
         if (position[a] && (position[a] == position[b] && position[a] == position[c])) {
-            return [a,b,c]
+            return [a,b,c];
         }
     }
-    return false
-
-
+    return false;
 }
 
 function stop() {
     boxes.forEach(box => {
 
-        box.innerText = 'X'
+        box.innerText = 'X';
 
-    })
+    });
 
-    restartText()
+    restartText();
 
-    endGame()
+    endGame();
 
 
 }
 
 function endGame() {
-    boxes.forEach(box => box.addEventListener('click', restartGame))
+    boxes.forEach(box => box.addEventListener('click', restartGame));
 
-    gamesPlayed()
+    gamesPlayed();
     
 
 }
 
 function restartGame() {
-    alert("Restarting game!")
+    alert("Restarting game!");
 
-    boxes.forEach(box => box.removeEventListener('click', restartGame))
+    boxes.forEach(box => box.removeEventListener('click', restartGame));
 
-    position.fill(null)
+    position.fill(null);
 
     boxes.forEach(box => {
 
         box.innerText = ' ';
 
-    })
+    });
 
-    headingText = document.getElementById('heading').innerText = "Tic Tac Toe"
+    document.getElementById('heading').innerText = "Tic Tac Toe";
 
-    document.getElementById('restart-text').innerText = " "
+    document.getElementById('restart-text').innerText = " ";
 
-    currentPlayer = player1
+    currentPlayer = player1;
 
 }
 
 function gamesPlayed() {
-    let played = parseInt(document.getElementById('played').innerText)
-    document.getElementById('played').innerText = ++played
+    let played = parseInt(document.getElementById('played').innerText);
+    document.getElementById('played').innerText = ++played;
 }
 
 function restartText() {
-    document.getElementById('restart-text').innerText = "click Board To Restart Game!"
+    document.getElementById('restart-text').innerText = "click Board To Restart Game!";
 }
 
-runGame()
+runGame();
