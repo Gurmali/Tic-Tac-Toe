@@ -48,3 +48,61 @@ p {
 #games {
     text-align: center;
 } 
+
+
+/* Media query for max width 700px */
+
+@media screen and (max-width: 700px) {
+
+    section {
+        width: 400px;
+    }
+    
+    h1 {
+        font-size: 50px;
+        text-align: center;
+    }
+    
+    .game-section {
+        grid-template-columns: 133px 133px 133px;
+        grid-template-rows: 133px 133px 133px;
+    }
+    
+    .game-section > div {
+        font-size: 100px;
+    }
+    
+    p {
+        font-size: x-large;
+    }
+
+}
+
+/* Media query for max width 500px */
+
+@media screen and (max-width: 500px) {
+
+    section {
+        width: 300px;
+    }
+    
+    h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+    
+    .game-section {
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+    }
+    
+    .game-section > div {
+        font-size: 72px;
+    }
+    
+    #restart-text {
+        font-size: large;
+    }
+
+
+}
