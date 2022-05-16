@@ -145,3 +145,35 @@ p {
     }
 
 }
+
+/* Media query for max width 670px */
+@media screen and (max-height: 667px) {
+
+    section {
+        width: 300px;
+    }
+    
+    h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+    
+    .game-section {
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+    }
+    
+    .game-section > div {
+        font-size: 72px;
+    }
+    
+    #restart-text {
+        font-size: large;
+    }
+
+    #start-game {
+        font-size: large;
+    }
+
+
+}
