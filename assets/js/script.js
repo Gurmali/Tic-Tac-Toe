@@ -158,7 +158,7 @@ function gamesPlayed() {
 }
 
 /**
- * Function for encouraging player players to restart the game
+ * Function for encouraging players to restart the game
  */
 function restartText() {
     document.getElementById('restart-text').innerText = "click Board To Restart Game!";
