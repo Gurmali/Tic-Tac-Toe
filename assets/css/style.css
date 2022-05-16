@@ -118,3 +118,30 @@ p {
 
 
 }
+
+/* Media query for max width 700px */
+@media screen and (max-height: 700px) {
+
+    section {
+        width: 400px;
+    }
+    
+    h1 {
+        font-size: 50px;
+        text-align: center;
+    }
+    
+    .game-section {
+        grid-template-columns: 133px 133px 133px;
+        grid-template-rows: 133px 133px 133px;
+    }
+    
+    .game-section > div {
+        font-size: 100px;
+    }
+    
+    p {
+        font-size: x-large;
+    }
+
+}
