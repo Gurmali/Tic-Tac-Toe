@@ -107,7 +107,7 @@ function stop() {
 
     });
 
-    restartText();
+    restartMessage();
 
     endGame();
 
@@ -162,7 +162,7 @@ function gamesPlayed() {
 /**
  * Function for encouraging players to restart the game
  */
-function restartText() {
+function restartMessage() {
     document.getElementById('restart-text').innerText = "click Board To Restart Game!";
 }
 
