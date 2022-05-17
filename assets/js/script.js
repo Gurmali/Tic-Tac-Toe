@@ -30,7 +30,6 @@ function runGame() {
 }
 
 /**
- * 
  * @param {Determines wich box is beaing clicked} e 
  */
 function placeMarker(e) {
