@@ -26,7 +26,7 @@ let position = Array(9).fill(null);
  */
 function runGame() {
     boxes.forEach(box => box.addEventListener('click', placeMarker));
-    document.getElementById('start-game').innerText = "Click Board To Start Game!"
+    document.getElementById('start-game').innerText = "Click Board To Start Game!";
 }
 
 /**
@@ -34,7 +34,7 @@ function runGame() {
  * @param {Determines wich box is beaing clicked} e 
  */
 function placeMarker(e) {
-    document.getElementById('start-game').innerText = " "
+    document.getElementById('start-game').innerText = " ";
 
     let id = e.target.id;
     
@@ -146,7 +146,7 @@ function restartGame() {
 
     document.getElementById('heading').innerText = "Tic Tac Toe";
 
-    document.getElementById('start-game').innerText = "Click Board to Start Game!"
+    document.getElementById('start-game').innerText = "Click Board to Start Game!";
 
     document.getElementById('restart-text').innerText = " ";
 

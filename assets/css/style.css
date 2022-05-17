@@ -15,12 +15,14 @@ section {
     padding-top: 5vh;
 }
 
+/*Heading*/
 h1 {
     font-size: 72px;
     text-align: center;
     color: aliceblue;
 }
 
+/*Game board*/
 .game-section {
     display: grid;
     grid-template-columns: 160px 160px 160px;
@@ -28,6 +30,7 @@ h1 {
     text-align: center;
 }
 
+/*Boxes*/
 .game-section > div {
     
     background-color: rgb(255, 100, 234);
@@ -40,6 +43,7 @@ h1 {
     border: 2px solid black;
 }
 
+/*Texts*/
 p {
     font-size: xx-large;
     color: aliceblue;
